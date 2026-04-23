@@ -1,0 +1,24 @@
+{
+  "packageId": "subscriptions-core",
+  "packName": "subscriptions-core-addon-pack",
+  "expectedActions": [
+    "subscriptions.plans.publish",
+    "subscriptions.cycles.generate",
+    "subscriptions.renewals.process"
+  ],
+  "expectedResources": [
+    "subscriptions.plans",
+    "subscriptions.cycles",
+    "subscriptions.renewals"
+  ],
+  "expectedReports": [
+    "Subscription Renewal Summary",
+    "MRR Snapshot",
+    "Failed Renewal Queue"
+  ],
+  "expectedExceptionQueues": [
+    "renewal-failure-review",
+    "payment-timeout-review",
+    "plan-change-proration-review"
+  ]
+}

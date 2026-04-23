@@ -1,0 +1,10 @@
+{
+  "automationId": "subscriptions-core.reconciliation.default",
+  "trigger": "exception-record-opened",
+  "action": "subscriptions.reconciliation.run",
+  "queues": [
+    "renewal-failure-review",
+    "payment-timeout-review",
+    "plan-change-proration-review"
+  ]
+}

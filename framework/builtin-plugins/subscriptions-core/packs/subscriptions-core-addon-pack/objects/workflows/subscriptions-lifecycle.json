@@ -1,0 +1,9 @@
+{
+  "workflowId": "subscriptions-lifecycle",
+  "actors": [
+    "revenue-ops",
+    "approver",
+    "controller"
+  ],
+  "description": "Publish plans, activate subscriptions, generate cycles, renew, pause, and close recurring agreements."
+}

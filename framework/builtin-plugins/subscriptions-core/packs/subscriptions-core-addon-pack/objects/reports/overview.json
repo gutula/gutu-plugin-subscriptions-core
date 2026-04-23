@@ -1,0 +1,18 @@
+{
+  "pluginId": "subscriptions-core",
+  "reports": [
+    "Subscription Renewal Summary",
+    "MRR Snapshot",
+    "Failed Renewal Queue"
+  ],
+  "exceptionQueues": [
+    "renewal-failure-review",
+    "payment-timeout-review",
+    "plan-change-proration-review"
+  ],
+  "operationalScenarios": [
+    "plan-publication",
+    "renewal-cycle-generation",
+    "proration-and-retry"
+  ]
+}

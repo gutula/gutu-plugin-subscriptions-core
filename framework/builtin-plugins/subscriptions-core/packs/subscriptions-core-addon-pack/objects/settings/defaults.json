@@ -1,0 +1,9 @@
+{
+  "workspace": "subscriptions",
+  "route": "/admin/business/subscriptions",
+  "pageTitle": "Subscriptions Control Room",
+  "defaultRecordState": "draft",
+  "defaultApprovalState": "pending",
+  "defaultPostingState": "unposted",
+  "defaultFulfillmentState": "none"
+}
