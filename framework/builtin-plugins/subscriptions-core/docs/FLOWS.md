@@ -5,6 +5,10 @@
 - `subscriptions.plans.publish`: Publish Subscription Plan
 - `subscriptions.cycles.generate`: Generate Billing Cycle
 - `subscriptions.renewals.process`: Process Renewal
+- `subscriptions.plans.hold`: Place Record On Hold
+- `subscriptions.plans.release`: Release Record Hold
+- `subscriptions.plans.amend`: Amend Record
+- `subscriptions.plans.reverse`: Reverse Record
 
 ## Operational scenario matrix
 
@@ -69,6 +73,106 @@ Forbidden shortcuts:
 Process Renewal
 
 Permission: `subscriptions.renewals.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `subscriptions.plans.hold`
+
+Place Record On Hold
+
+Permission: `subscriptions.plans.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `subscriptions.plans.release`
+
+Release Record Hold
+
+Permission: `subscriptions.plans.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `subscriptions.plans.amend`
+
+Amend Record
+
+Permission: `subscriptions.plans.write`
+
+Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
+
+Preconditions:
+
+- Caller input must satisfy the action schema exported by the plugin.
+- The caller must satisfy the declared permission and any host-level installation constraints.
+- Integration should honor the action’s non-idempotent semantics.
+
+Side effects:
+
+- Mutates or validates state owned by `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
+- May schedule or describe follow-up background work.
+
+Forbidden shortcuts:
+
+- Do not bypass the action contract with undocumented service mutations in application code.
+- Do not document extra hooks, retries, or lifecycle semantics unless they are explicitly exported here.
+
+
+### `subscriptions.plans.reverse`
+
+Reverse Record
+
+Permission: `subscriptions.plans.write`
 
 Business purpose: Expose the plugin’s write boundary through a validated, auditable action contract.
 

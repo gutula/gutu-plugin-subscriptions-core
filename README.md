@@ -26,7 +26,7 @@ Subscription plans, billing cycles, renewals, pauses, and service-period truth f
 
 Owns recurring plan, cycle, and renewal truth for subscription businesses instead of burying recurrence inside orders or invoices.
 
-- Exports 3 governed actions: `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process`.
+- Exports 7 governed actions: `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process`, `subscriptions.plans.hold`, `subscriptions.plans.release`, `subscriptions.plans.amend`, `subscriptions.plans.reverse`.
 - Owns 3 resource contracts: `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
 - Publishes 2 job definitions with explicit queue and retry policy metadata.
 - Publishes 1 workflow definition with state-machine descriptions and mandatory steps.
@@ -71,7 +71,7 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 
 | Surface | Count | Details |
 | --- | --- | --- |
-| Actions | 3 | `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process` |
+| Actions | 7 | `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process`, `subscriptions.plans.hold`, `subscriptions.plans.release`, `subscriptions.plans.amend`, `subscriptions.plans.reverse` |
 | Resources | 3 | `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals` |
 | Jobs | 2 | `subscriptions.projections.refresh`, `subscriptions.reconciliation.run` |
 | Workflows | 1 | `subscriptions-lifecycle` |
@@ -96,10 +96,10 @@ bun run docs:check
 ```
 
 ```ts
-import { manifest, createPrimaryRecordAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/subscriptions-core";
+import { manifest, publishSubscriptionPlanAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/subscriptions-core";
 
 console.log(manifest.id);
-console.log(createPrimaryRecordAction.id);
+console.log(publishSubscriptionPlanAction.id);
 console.log(BusinessPrimaryResource.id);
 ```
 

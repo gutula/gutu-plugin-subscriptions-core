@@ -71,6 +71,10 @@ Owns recurring plan, cycle, and renewal truth for subscription businesses instea
 | Action | `subscriptions.plans.publish` | Permission: `subscriptions.plans.write` | Publish Subscription Plan<br>Idempotent<br>Audited |
 | Action | `subscriptions.cycles.generate` | Permission: `subscriptions.cycles.write` | Generate Billing Cycle<br>Non-idempotent<br>Audited |
 | Action | `subscriptions.renewals.process` | Permission: `subscriptions.renewals.write` | Process Renewal<br>Non-idempotent<br>Audited |
+| Action | `subscriptions.plans.hold` | Permission: `subscriptions.plans.write` | Place Record On Hold<br>Non-idempotent<br>Audited |
+| Action | `subscriptions.plans.release` | Permission: `subscriptions.plans.write` | Release Record Hold<br>Non-idempotent<br>Audited |
+| Action | `subscriptions.plans.amend` | Permission: `subscriptions.plans.write` | Amend Record<br>Non-idempotent<br>Audited |
+| Action | `subscriptions.plans.reverse` | Permission: `subscriptions.plans.write` | Reverse Record<br>Non-idempotent<br>Audited |
 | Resource | `subscriptions.plans` | Portal disabled | Subscription plan definitions and effective-date policy records.<br>Purpose: Own recurring commercial plan truth outside of order-only flows.<br>Admin auto-CRUD enabled<br>Fields: `title`, `recordState`, `approvalState`, `postingState`, `fulfillmentState`, `updatedAt` |
 | Resource | `subscriptions.cycles` | Portal disabled | Generated billing or service cycles for active subscriptions.<br>Purpose: Expose recurring commercial obligations explicitly before downstream billing.<br>Admin auto-CRUD enabled<br>Fields: `label`, `status`, `requestedAction`, `updatedAt` |
 | Resource | `subscriptions.renewals` | Portal disabled | Renewal, pause, resume, and expiry handling records.<br>Purpose: Keep renewal state visible and repairable instead of implicit.<br>Admin auto-CRUD enabled<br>Fields: `severity`, `status`, `reasonCode`, `updatedAt` |
@@ -156,11 +160,11 @@ stateDiagram-v2
 ### 1. Host wiring
 
 ```ts
-import { manifest, createPrimaryRecordAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/subscriptions-core";
+import { manifest, publishSubscriptionPlanAction, BusinessPrimaryResource, jobDefinitions, workflowDefinitions, adminContributions, uiSurface } from "@plugins/subscriptions-core";
 
 export const pluginSurface = {
   manifest,
-  createPrimaryRecordAction,
+  publishSubscriptionPlanAction,
   BusinessPrimaryResource,
   jobDefinitions,
   workflowDefinitions,
@@ -174,10 +178,10 @@ Use this pattern when your host needs to register the plugin’s declared export
 ### 2. Action-first orchestration
 
 ```ts
-import { manifest, createPrimaryRecordAction } from "@plugins/subscriptions-core";
+import { manifest, publishSubscriptionPlanAction } from "@plugins/subscriptions-core";
 
 console.log("plugin", manifest.id);
-console.log("action", createPrimaryRecordAction.id);
+console.log("action", publishSubscriptionPlanAction.id);
 ```
 
 - Prefer action IDs as the stable integration boundary.
@@ -219,7 +223,7 @@ console.log("action", createPrimaryRecordAction.id);
 
 ### Current truth
 
-- Exports 3 governed actions: `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process`.
+- Exports 7 governed actions: `subscriptions.plans.publish`, `subscriptions.cycles.generate`, `subscriptions.renewals.process`, `subscriptions.plans.hold`, `subscriptions.plans.release`, `subscriptions.plans.amend`, `subscriptions.plans.reverse`.
 - Owns 3 resource contracts: `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`.
 - Publishes 2 job definitions with explicit queue and retry policy metadata.
 - Publishes 1 workflow definition with state-machine descriptions and mandatory steps.
@@ -233,7 +237,7 @@ console.log("action", createPrimaryRecordAction.id);
 
 ### Current gaps
 
-- Repo-local documentation verification entrypoints were missing before this pass and need to stay green as the repo evolves.
+- No extra gaps were discovered beyond the plugin’s declared boundaries.
 
 ### Recommended next
 

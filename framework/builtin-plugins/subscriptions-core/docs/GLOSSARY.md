@@ -9,6 +9,10 @@
 | subscriptions.plans.publish | Publish Subscription Plan |
 | subscriptions.cycles.generate | Generate Billing Cycle |
 | subscriptions.renewals.process | Process Renewal |
+| subscriptions.plans.hold | Place Record On Hold |
+| subscriptions.plans.release | Release Record Hold |
+| subscriptions.plans.amend | Amend Record |
+| subscriptions.plans.reverse | Reverse Record |
 | subscriptions.projections.refresh | Job definition queued on `subscriptions-projections`. |
 | subscriptions.reconciliation.run | Job definition queued on `subscriptions-reconciliation`. |
 | subscriptions-lifecycle | Publish plans, activate subscriptions, generate cycles, renew, pause, and close recurring agreements. |

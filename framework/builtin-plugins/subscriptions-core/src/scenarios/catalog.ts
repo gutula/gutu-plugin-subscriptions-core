@@ -6,7 +6,11 @@ export const scenarioDefinitions = [
     "actionIds": [
       "subscriptions.plans.publish",
       "subscriptions.cycles.generate",
-      "subscriptions.renewals.process"
+      "subscriptions.renewals.process",
+      "subscriptions.plans.hold",
+      "subscriptions.plans.release",
+      "subscriptions.plans.amend",
+      "subscriptions.plans.reverse"
     ],
     "downstreamTargets": {
       "create": [],
@@ -26,7 +30,11 @@ export const scenarioDefinitions = [
     "actionIds": [
       "subscriptions.plans.publish",
       "subscriptions.cycles.generate",
-      "subscriptions.renewals.process"
+      "subscriptions.renewals.process",
+      "subscriptions.plans.hold",
+      "subscriptions.plans.release",
+      "subscriptions.plans.amend",
+      "subscriptions.plans.reverse"
     ],
     "downstreamTargets": {
       "create": [],
@@ -46,7 +54,11 @@ export const scenarioDefinitions = [
     "actionIds": [
       "subscriptions.plans.publish",
       "subscriptions.cycles.generate",
-      "subscriptions.renewals.process"
+      "subscriptions.renewals.process",
+      "subscriptions.plans.hold",
+      "subscriptions.plans.release",
+      "subscriptions.plans.amend",
+      "subscriptions.plans.reverse"
     ],
     "downstreamTargets": {
       "create": [],
