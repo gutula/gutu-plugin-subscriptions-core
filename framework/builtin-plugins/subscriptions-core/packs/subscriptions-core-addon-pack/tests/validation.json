@@ -1,6 +1,32 @@
 {
   "packageId": "subscriptions-core",
   "packName": "subscriptions-core-addon-pack",
+  "requiredPlugins": [
+    "auth-core",
+    "org-tenant-core",
+    "role-policy-core",
+    "audit-core",
+    "workflow-core",
+    "party-relationships-core",
+    "pricing-tax-core",
+    "contracts-core",
+    "accounting-core",
+    "traceability-core"
+  ],
+  "recommendedPlugins": [
+    "sales-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "business-portals-core",
+    "support-service-core",
+    "ai-assist-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-ecommerce"
+  ],
   "expectedActions": [
     "subscriptions.plans.publish",
     "subscriptions.cycles.generate",

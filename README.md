@@ -61,11 +61,26 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 | Manifest ID | `subscriptions-core` |
 | Repo | [gutu-plugin-subscriptions-core](https://github.com/gutula/gutu-plugin-subscriptions-core) |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `party-relationships-core`, `pricing-tax-core`, `contracts-core`, `accounting-core`, `traceability-core` |
+| Recommended Plugins | `sales-core` |
+| Capability Enhancing | `business-portals-core`, `support-service-core`, `ai-assist-core` |
+| Integration Only | `analytics-bi-core` |
+| Suggested Packs | `sector-ecommerce` |
+| Standalone Supported | No |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.subscriptions`, `events.publish.subscriptions` |
 | Provided Capabilities | `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals` |
 | Runtime | bun>=1.3.12 |
 | Database | postgres, sqlite |
 | Integration Model | Actions+Resources+Jobs+Workflows+UI |
+
+## Installation Guidance
+
+- Required plugins: `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `party-relationships-core`, `pricing-tax-core`, `contracts-core`, `accounting-core`, `traceability-core`
+- Recommended plugins: `sales-core`
+- Capability-enhancing plugins: `business-portals-core`, `support-service-core`, `ai-assist-core`
+- Integration-only plugins: `analytics-bi-core`
+- Suggested packs: `sector-ecommerce`
+- Standalone supported: no
+- Recurring commercial models should install Contracts and Accounting alongside this plugin for real-world use.
 
 ## Capability Matrix
 

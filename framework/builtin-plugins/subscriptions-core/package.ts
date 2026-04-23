@@ -78,9 +78,54 @@ export default definePackage({
       "packageId": "traceability-core",
       "class": "required",
       "rationale": "Required for Subscriptions Core to keep its boundary governed and explicit."
+    },
+    {
+      "packageId": "sales-core",
+      "class": "optional",
+      "rationale": "Recommended with Subscriptions Core for smoother production adoption and operator experience."
+    },
+    {
+      "packageId": "business-portals-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Subscriptions Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "support-service-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Subscriptions Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "ai-assist-core",
+      "class": "capability-enhancing",
+      "rationale": "Improves Subscriptions Core with deeper downstream automation, visibility, or workflow coverage."
+    },
+    {
+      "packageId": "analytics-bi-core",
+      "class": "integration-only",
+      "rationale": "Only needed when Subscriptions Core must exchange data or actions with adjacent or external surfaces."
     }
   ],
-  "optionalWith": [],
+  "recommendedPlugins": [
+    "sales-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "business-portals-core",
+    "support-service-core",
+    "ai-assist-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-ecommerce"
+  ],
+  "standaloneSupported": false,
+  "installNotes": [
+    "Recurring commercial models should install Contracts and Accounting alongside this plugin for real-world use."
+  ],
+  "optionalWith": [
+    "sales-core"
+  ],
   "conflictsWith": [],
   "providesCapabilities": [
     "subscriptions.plans",

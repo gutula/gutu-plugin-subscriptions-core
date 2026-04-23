@@ -54,6 +54,11 @@ Owns recurring plan, cycle, and renewal truth for subscription businesses instea
 | Field | Value |
 | --- | --- |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`, `workflow-core`, `party-relationships-core`, `pricing-tax-core`, `contracts-core`, `accounting-core`, `traceability-core` |
+| Recommended Plugins | `sales-core` |
+| Capability Enhancing | `business-portals-core`, `support-service-core`, `ai-assist-core` |
+| Integration Only | `analytics-bi-core` |
+| Suggested Packs | `sector-ecommerce` |
+| Standalone Supported | No |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.subscriptions`, `events.publish.subscriptions` |
 | Provides Capabilities | `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals` |
 | Owns Data | `subscriptions.plans`, `subscriptions.cycles`, `subscriptions.renewals`, `subscriptions.exceptions` |

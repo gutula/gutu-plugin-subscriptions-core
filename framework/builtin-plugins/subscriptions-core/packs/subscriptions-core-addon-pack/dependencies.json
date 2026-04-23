@@ -12,6 +12,21 @@
     "accounting-core",
     "traceability-core"
   ],
+  "recommendedPlugins": [
+    "sales-core"
+  ],
+  "capabilityEnhancingPlugins": [
+    "business-portals-core",
+    "support-service-core",
+    "ai-assist-core"
+  ],
+  "integrationOnlyPlugins": [
+    "analytics-bi-core"
+  ],
+  "suggestedPacks": [
+    "sector-ecommerce"
+  ],
+  "standaloneSupported": false,
   "requiredCapabilities": [
     "ui.register.admin",
     "api.rest.mount",
